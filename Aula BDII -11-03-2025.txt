@@ -1,4 +1,16 @@
 -- Aula do dia 11/03/2025
 -- Professor Molina
 
--- Comando SELECT Customizado
+
+-- Comando para selecionar tosos os 
+-- Registros da tabela medicos
+
+SELECT nome, idade
+FROM medicos;
+
+SELECT *
+FROM medicos;
+
+SELECT *
+FROM medicos
+WHERE codm = 3;
