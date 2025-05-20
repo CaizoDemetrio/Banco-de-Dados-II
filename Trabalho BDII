@@ -1,0 +1,49 @@
+create database Biblioteaz;
+use Biblioteaz;
+
+CREATE TABLE Autores (
+    idAutores INT PRIMARY KEY,
+    nome VARCHAR(45),
+    nacionalidade VARCHAR(45),
+    data_nascimento VARCHAR(45)
+);
+
+CREATE TABLE Livros (
+    idLivros INT PRIMARY KEY,
+    Titulo VARCHAR(45),
+    ano_publicacao VARCHAR(45),
+    descricao VARCHAR(45),
+    Disponibilidade VARCHAR(45),
+    idAutores INT,
+    FOREIGN KEY (idAutores) REFERENCES Autores(idAutores)
+);
+
+CREATE TABLE Usuários (
+    idUsuários INT PRIMARY KEY,
+    nome VARCHAR(45),
+    email VARCHAR(45),
+    telefone VARCHAR(45),
+    data_cadastro VARCHAR(45)
+);
+
+CREATE TABLE Empréstimos (
+    idEmpréstimos INT PRIMARY KEY,
+    data_emprestimo VARCHAR(45),
+    data_devolucao_prevista VARCHAR(45),
+    data_devolucao_real VARCHAR(45),
+    status VARCHAR(45),
+    idUsuários INT,
+    idLivros INT,
+    FOREIGN KEY (idUsuários) REFERENCES Usuários(idUsuários),
+    FOREIGN KEY (idLivros) REFERENCES Livros(idLivros)
+);
+
+CREATE TABLE Reservas (
+    idReservas INT PRIMARY KEY,
+    status_reserva VARCHAR(45),
+    data_reserva VARCHAR(45),
+    idLivros INT,
+    idUsuários INT,
+    FOREIGN KEY (idLivros) REFERENCES Livros(idLivros),
+    FOREIGN KEY (idUsuários) REFERENCES Usuários(idUsuários)
+);
