@@ -1,11 +1,13 @@
 create database Biblioteaz;
+
 use Biblioteaz;
 
 CREATE TABLE Autores (
     idAutores INT PRIMARY KEY,
     nome VARCHAR(45),
     nacionalidade VARCHAR(45),
-    data_nascimento VARCHAR(45)
+    data_nascimento VARCHAR(45),
+    biografia TEXT
 );
 
 CREATE TABLE Livros (
@@ -15,7 +17,8 @@ CREATE TABLE Livros (
     descricao VARCHAR(45),
     Disponibilidade VARCHAR(45),
     idAutores INT,
-    FOREIGN KEY (idAutores) REFERENCES Autores(idAutores)
+    FOREIGN KEY (idAutores) REFERENCES Autores(idAutores),
+    paginas VARCHAR(5)
 );
 
 CREATE TABLE Usuários (
@@ -23,7 +26,8 @@ CREATE TABLE Usuários (
     nome VARCHAR(45),
     email VARCHAR(45),
     telefone VARCHAR(45),
-    data_cadastro VARCHAR(45)
+    data_cadastro VARCHAR(45),
+    CPF BIGINT
 );
 
 CREATE TABLE Empréstimos (
@@ -31,6 +35,7 @@ CREATE TABLE Empréstimos (
     data_emprestimo VARCHAR(45),
     data_devolucao_prevista VARCHAR(45),
     data_devolucao_real VARCHAR(45),
+    multa VARCHAR(45),
     status VARCHAR(45),
     idUsuários INT,
     idLivros INT,
@@ -42,6 +47,7 @@ CREATE TABLE Reservas (
     idReservas INT PRIMARY KEY,
     status_reserva VARCHAR(45),
     data_reserva VARCHAR(45),
+    limite_data VARCHAR(45),
     idLivros INT,
     idUsuários INT,
     FOREIGN KEY (idLivros) REFERENCES Livros(idLivros),
