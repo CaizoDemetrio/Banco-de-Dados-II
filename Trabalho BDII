@@ -47,3 +47,213 @@ CREATE TABLE Reservas (
     FOREIGN KEY (idLivros) REFERENCES Livros(idLivros),
     FOREIGN KEY (idUsuários) REFERENCES Usuários(idUsuários)
 );
+
+INSERT INTO Autores (name, nacionalidade, data_nascimento) VALUES  
+('Machado de Assis', 'Brasileira', '1839-06-21'),  
+('Clarice Lispector', 'Brasileira', '1920-12-10'),  
+('Jorge Amado', 'Brasileira', '1912-08-10'),  
+('Carlos Drummond', 'Brasileira', '1902-10-31'),  
+('George Orwell', 'Britânica', '1903-06-25'),  
+('Jane Austen', 'Britânica', '1775-12-16'),  
+('Gabriel García Márquez', 'Colombiana', '1927-03-06'),  
+('J.K. Rowling', 'Britânica', '1965-07-31'),  
+('Toni Morrison', 'Americana', '1931-02-18'),  
+('Haruki Murakami', 'Japonesa', '1949-01-12'),  
+('Fernando Pessoa', 'Portuguesa', '1888-06-13'),  
+('Virginia Woolf', 'Britânica', '1882-01-25'),  
+('Fiódor Dostoiévski', 'Russa', '1821-11-11'),  
+('Franz Kafka', 'Tcheca', '1883-07-03'),  
+('Albert Camus', 'Francesa', '1913-11-07'),  
+('Julio Cortázar', 'Argentina', '1914-08-26'),  
+('Pablo Neruda', 'Chilena', '1904-07-12'),  
+('Octavio Paz', 'Mexicana', '1914-03-31'),  
+('Agatha Christie', 'Britânica', '1890-09-15'),  
+('Stephen King', 'Americana', '1947-09-21'),  
+('Nelson Rodrigues', 'Brasileira', '1912-08-23'),  
+('Lygia Fagundes Telles', 'Brasileira', '1923-04-19'),  
+('Erico Verissimo', 'Brasileira', '1905-12-17'),  
+('Graciliano Ramos', 'Brasileira', '1892-10-27'),  
+('José de Alencar', 'Brasileira', '1829-05-01'),  
+('Cecília Meireles', 'Brasileira', '1901-11-07'),  
+('Mário de Andrade', 'Brasileira', '1893-10-09'),  
+('Rubem Fonseca', 'Brasileira', '1925-05-11'),  
+('Lima Barreto', 'Brasileira', '1881-05-13'),  
+('Adélia Prado', 'Brasileira', '1935-12-13'),  
+('Paulo Coelho', 'Brasileira', '1947-08-24'),  
+('Rachel de Queiroz', 'Brasileira', '1910-11-17'),  
+('Monteiro Lobato', 'Brasileira', '1882-04-18'),  
+('Guimarães Rosa', 'Brasileira', '1908-06-27'),  
+('Vinicius de Moraes', 'Brasileira', '1913-10-19'),  
+('Manuel Bandeira', 'Brasileira', '1886-04-19'),  
+('Oswald de Andrade', 'Brasileira', '1890-01-11'),  
+('Augusto dos Anjos', 'Brasileira', '1884-04-20'),  
+('Cora Coralina', 'Brasileira', '1889-08-20'),  
+('João Cabral', 'Brasileira', '1920-01-09');  
+
+INSERT INTO Usuários (name, email, telefone, data_cadastro) VALUES  
+('João Silva', 'joao.silva@email.com', '(11) 99999-1111', '2023-01-15'),  
+('Maria Souza', 'maria.souza@email.com', '(21) 98888-2222', '2023-02-20'),  
+('Carlos Oliveira', 'carlos.oliveira@email.com', '(31) 97777-3333', '2023-03-10'),  
+('Ana Pereira', 'ana.pereira@email.com', '(41) 96666-4444', '2023-04-05'),  
+('Pedro Santos', 'pedro.santos@email.com', '(51) 95555-5555', '2023-05-12'),  
+('Lucia Ferreira', 'lucia.ferreira@email.com', '(61) 94444-6666', '2023-06-18'),  
+('Paulo Costa', 'paulo.costa@email.com', '(71) 93333-7777', '2023-07-22'),  
+('Fernanda Lima', 'fernanda.lima@email.com', '(81) 92222-8888', '2023-08-30'),  
+('Rafael Alves', 'rafael.alves@email.com', '(91) 91111-9999', '2023-09-14'),  
+('Juliana Martins', 'juliana.martins@email.com', '(12) 99999-0000', '2023-10-25'),  
+('Lucas Rocha', 'lucas.rocha@email.com', '(22) 98888-1111', '2023-11-05'),  
+('Patricia Gomes', 'patricia.gomes@email.com', '(32) 97777-2222', '2023-12-10'),  
+('Marcos Dias', 'marcos.dias@email.com', '(42) 96666-3333', '2024-01-15'),  
+('Camila Barbosa', 'camila.barbosa@email.com', '(52) 95555-4444', '2024-02-20'),  
+('Gustavo Henrique', 'gustavo.henrique@email.com', '(62) 94444-5555', '2024-03-05'),  
+('Isabela Santos', 'isabela.santos@email.com', '(72) 93333-6666', '2024-04-10'),  
+('Roberto Carlos', 'roberto.carlos@email.com', '(82) 92222-7777', '2024-05-15'),  
+('Tatiane Almeida', 'tatiane.almeida@email.com', '(92) 91111-8888', '2024-06-20'),  
+('Diego Oliveira', 'diego.oliveira@email.com', '(13) 99999-9999', '2024-07-25'),  
+('Amanda Ribeiro', 'amanda.ribeiro@email.com', '(23) 98888-0000', '2024-08-30'),  
+('Bruno Carvalho', 'bruno.carvalho@email.com', '(33) 97777-1111', '2024-09-05'),  
+('Carla Mendes', 'carla.mendes@email.com', '(43) 96666-2222', '2024-10-10'),  
+('Daniel Torres', 'daniel.torres@email.com', '(53) 95555-3333', '2024-11-15'),  
+('Eduarda Silva', 'eduarda.silva@email.com', '(63) 94444-4444', '2024-12-20'),  
+('Felipe Nunes', 'felipe.nunes@email.com', '(73) 93333-5555', '2025-01-25'),  
+('Gabriela Costa', 'gabriela.costa@email.com', '(83) 92222-6666', '2025-02-28'),  
+('Hugo Pereira', 'hugo.pereira@email.com', '(93) 91111-7777', '2025-03-05'),  
+('Ivana Souza', 'ivana.souza@email.com', '(14) 99999-8888', '2025-04-10'),  
+('Jorge Mendonça', 'jorge.mendonca@email.com', '(24) 98888-9999', '2025-05-15'),  
+('Karina Alves', 'karina.alves@email.com', '(34) 97777-0000', '2025-06-20'),  
+('Leandro Gomes', 'leandro.gomes@email.com', '(44) 96666-1111', '2025-07-25'),  
+('Mariana Dias', 'mariana.dias@email.com', '(54) 95555-2222', '2025-08-30'),  
+('Nicolas Rocha', 'nicolas.rocha@email.com', '(64) 94444-3333', '2025-09-05'),  
+('Olivia Barbosa', 'olivia.barbosa@email.com', '(74) 93333-4444', '2025-10-10'),  
+('Paulo Henrique', 'paulo.henrique@email.com', '(84) 92222-5555', '2025-11-15'),  
+('Quezia Santos', 'quezia.santos@email.com', '(94) 91111-6666', '2025-12-20'),  
+('Ricardo Carlos', 'ricardo.carlos@email.com', '(15) 99999-7777', '2026-01-25'),  
+('Sandra Almeida', 'sandra.almeida@email.com', '(25) 98888-8888', '2026-02-28'),  
+('Tiago Oliveira', 'tiago.oliveira@email.com', '(35) 97777-9999', '2026-03-05'),  
+('Ursula Ribeiro', 'ursula.ribeiro@email.com', '(45) 96666-0000', '2026-04-10');  
+
+INSERT INTO Livros (Titulo, ano_publicacao, descrição, Disponibilidade, idAutores) VALUES  
+('Dom Casmurro', '1899', 'Romance clássico brasileiro', 'Disponível', 1),  
+('Memórias Póstumas de Brás Cubas', '1881', 'Narrado por um defunto', 'Disponível', 1),  
+('A Hora da Estrela', '1977', 'Última obra de Clarice', 'Indisponível', 2),  
+('Laços de Família', '1960', 'Contos sobre relações familiares', 'Disponível', 2),  
+('Capitães da Areia', '1937', 'Romance sobre meninos de rua', 'Disponível', 3),  
+('Dona Flor e Seus Dois Maridos', '1966', 'Comédia dramática', 'Disponível', 3),  
+('Sentimento do Mundo', '1940', 'Poesia modernista', 'Disponível', 4),  
+('A Rosa do Povo', '1945', 'Poesia social', 'Disponível', 4),  
+('1984', '1949', 'Distopia sobre vigilância', 'Disponível', 5),  
+('A Revolução dos Bichos', '1945', 'Sátira política', 'Indisponível', 5),  
+('Orgulho e Preconceito', '1813', 'Romance de costumes', 'Disponível', 6),  
+('Razão e Sensibilidade', '1811', 'Drama familiar', 'Disponível', 6),  
+('Cem Anos de Solidão', '1967', 'Realismo mágico', 'Disponível', 7),  
+('O Amor nos Tempos do Cólera', '1985', 'História de amor', 'Disponível', 7),  
+('Harry Potter e a Pedra Filosofal', '1997', 'Primeiro livro da série', 'Indisponível', 8),  
+('Harry Potter e o Prisioneiro de Azkaban', '1999', 'Terceiro livro da série', 'Disponível', 8),  
+('Amada', '1987', 'Romance sobre escravidão', 'Disponível', 9),  
+('Paraíso', '1998', 'Ficção histórica', 'Disponível', 9),  
+('Kafka à Beira-Mar', '2002', 'Realismo fantástico', 'Disponível', 10),  
+('Norwegian Wood', '1987', 'Romance de coming-of-age', 'Disponível', 10),  
+('O Livro do Desassossego', '1982', 'Obra fragmentária', 'Disponível', 11),  
+('Mensagem', '1934', 'Poesia nacionalista', 'Disponível', 11),  
+('Mrs. Dalloway', '1925', 'Romance modernista', 'Disponível', 12),  
+('Ao Farol', '1927', 'Narrativa introspectiva', 'Disponível', 12),  
+('Crime e Castigo', '1866', 'Drama psicológico', 'Disponível', 13),  
+('Os Irmãos Karamázov', '1880', 'Romance filosófico', 'Disponível', 13),  
+('A Metamorfose', '1915', 'Conto existencialista', 'Disponível', 14),  
+('O Processo', '1925', 'Romance kafkiano', 'Disponível', 14),  
+('O Estrangeiro', '1942', 'Romance existencialista', 'Disponível', 15),  
+('A Peste', '1947', 'Alegoria sobre o mal', 'Disponível', 15),  
+('O Jogo da Amarelinha', '1963', 'Romance experimental', 'Disponível', 16),  
+('Histórias de Cronópios e de Famas', '1962', 'Contos surrealistas', 'Disponível', 16),  
+('Vinte Poemas de Amor e Uma Canção Desesperada', '1924', 'Poesia lírica', 'Disponível', 17),  
+('Canto Geral', '1950', 'Poesia épica', 'Disponível', 17),  
+('O Labirinto da Solidão', '1950', 'Ensaio sobre identidade', 'Disponível', 18),  
+('Piedra de Sol', '1957', 'Poema em espiral', 'Disponível', 18),  
+('O Assassinato no Expresso do Oriente', '1934', 'Mistério clássico', 'Disponível', 19),  
+('Morte no Nilo', '1937', 'Detetive Hercule Poirot', 'Disponível', 19),  
+('O Iluminado', '1977', 'Terror psicológico', 'Disponível', 20),  
+('It: A Coisa', '1986', 'Terror sobrenatural', 'Disponível', 20);  
+
+INSERT INTO Reversas (status_reserva, data_reserva, idLivros, idUsuários) VALUES  
+('Ativa', '2024-05-01', 3, 1),  -- João reservou "A Hora da Estrela"  
+('Cancelada', '2024-05-10', 10, 2),  -- Maria reservou "A Revolução dos Bichos" (cancelou)  
+('Concluída', '2024-05-15', 15, 3),  -- Carlos reservou "Harry Potter e a Pedra Filosofal"  
+('Ativa', '2024-06-01', 20, 4),  -- Ana reservou "Norwegian Wood"  
+('Cancelada', '2024-06-05', 25, 5),  -- Pedro reservou "Crime e Castigo" (cancelou)  
+('Concluída', '2024-06-10', 30, 6),  -- Lucia reservou "O Estrangeiro"  
+('Ativa', '2024-06-15', 35, 7),  -- Paulo reservou "O Assassinato no Expresso do Oriente"  
+('Cancelada', '2024-06-20', 40, 8),  -- Fernanda reservou "It: A Coisa" (cancelou)  
+('Concluída', '2024-07-01', 5, 9),  -- Rafael reservou "Capitães da Areia"  
+('Ativa', '2024-07-05', 10, 10),  -- Juliana reservou "A Revolução dos Bichos"  
+('Cancelada', '2024-07-10', 15, 11),  -- Lucas reservou "Harry Potter e a Pedra Filosofal" (cancelou)  
+('Concluída', '2024-07-15', 20, 12),  -- Patricia reservou "Norwegian Wood"  
+('Ativa', '2024-07-20', 25, 13),  -- Marcos reservou "Crime e Castigo"  
+('Cancelada', '2024-07-25', 30, 14),  -- Camila reservou "O Estrangeiro" (cancelou)  
+('Concluída', '2024-08-01', 35, 15),  -- Gustavo reservou "O Assassinato no Expresso do Oriente"  
+('Ativa', '2024-08-05', 40, 16),  -- Isabela reservou "It: A Coisa"  
+('Cancelada', '2024-08-10', 5, 17),  -- Roberto reservou "Capitães da Areia" (cancelou)  
+('Concluída', '2024-08-15', 10, 18),  -- Tatiane reservou "A Revolução dos Bichos"  
+('Ativa', '2024-08-20', 15, 19),  -- Diego reservou "Harry Potter e a Pedra Filosofal"  
+('Cancelada', '2024-08-25', 20, 20),  -- Amanda reservou "Norwegian Wood" (cancelou)  
+('Concluída', '2024-09-01', 25, 21),  -- Bruno reservou "Crime e Castigo"  
+('Ativa', '2024-09-05', 30, 22),  -- Carla reservou "O Estrangeiro"  
+('Cancelada', '2024-09-10', 35, 23),  -- Daniel reservou "O Assassinato no Expresso do Oriente" (cancelou)  
+('Concluída', '2024-09-15', 40, 24),  -- Eduarda reservou "It: A Coisa"  
+('Ativa', '2024-09-20', 5, 25),  -- Felipe reservou "Capitães da Areia"  
+('Cancelada', '2024-09-25', 10, 26),  -- Gabriela reservou "A Revolução dos Bichos" (cancelou)  
+('Concluída', '2024-10-01', 15, 27),  -- Hugo reservou "Harry Potter e a Pedra Filosofal"  
+('Ativa', '2024-10-05', 20, 28),  -- Ivana reservou "Norwegian Wood"  
+('Cancelada', '2024-10-10', 25, 29),  -- Jorge reservou "Crime e Castigo" (cancelou)  
+('Concluída', '2024-10-15', 30, 30),  -- Karina reservou "O Estrangeiro"  
+('Ativa', '2024-10-20', 35, 31),  -- Leandro reservou "O Assassinato no Expresso do Oriente"  
+('Cancelada', '2024-10-25', 40, 32),  -- Mariana reservou "It: A Coisa" (cancelou)  
+('Concluída', '2024-11-01', 5, 33),  -- Nicolas reservou "Capitães da Areia"  
+('Ativa', '2024-11-05', 10, 34),  -- Olivia reservou "A Revolução dos Bichos"  
+('Cancelada', '2024-11-10', 15, 35),  -- Paulo reservou "Harry Potter e a Pedra Filosofal" (cancelou)  
+('Concluída', '2024-11-15', 20, 36),  -- Quezia reservou "Norwegian Wood"  
+('Ativa', '2024-11-20', 25, 37),  -- Ricardo reservou "Crime e Castigo"  
+('Cancelada', '2024-11-25', 30, 38),  -- Sandra reservou "O Estrangeiro" (cancelou)  
+('Concluída', '2024-12-01', 35, 39),  -- Tiago reservou "O Assassinato no Expresso do Oriente"  
+('Ativa', '2024-12-05', 40, 40);  -- Ursula reservou "It: A Coisa"  
+
+INSERT INTO Empresitmos (data_empresitmo, data_devolucao_prevista, data_devolucao_real, status, idUsuários, idLivros) VALUES  
+('2024-04-01', '2024-04-15', NULL, 'Em andamento', 1, 1),  -- João pegou "Dom Casmurro"  
+('2024-04-05', '2024-04-20', '2024-04-18', 'Devolvido', 2, 2),  -- Maria pegou "Memórias Póstumas"  
+('2024-04-10', '2024-04-25', NULL, 'Atrasado', 3, 3),  -- Carlos pegou "A Hora da Estrela" (atrasado)  
+('2024-04-15', '2024-04-30', '2024-04-28', 'Devolvido', 4, 4),  -- Ana pegou "Laços de Família"  
+('2024-04-20', '2024-05-05', NULL, 'Em andamento', 5, 5),  -- Pedro pegou "Capitães da Areia"  
+('2024-04-25', '2024-05-10', '2024-05-08', 'Devolvido', 6, 6),  -- Lucia pegou "Dona Flor..."  
+('2024-05-01', '2024-05-15', NULL, 'Atrasado', 7, 7),  -- Paulo pegou "Sentimento do Mundo"  
+('2024-05-05', '2024-05-20', '2024-05-18', 'Devolvido', 8, 8),  -- Fernanda pegou "A Rosa do Povo"  
+('2024-05-10', '2024-05-25', NULL, 'Em andamento', 9, 9),  -- Rafael pegou "1984"  
+('2024-05-15', '2024-05-30', '2024-05-28', 'Devolvido', 10, 10),  -- Juliana pegou "A Revolução dos Bichos"  
+('2024-05-20', '2024-06-04', NULL, 'Atrasado', 11, 11),  -- Lucas pegou "Orgulho e Preconceito"  
+('2024-05-25', '2024-06-09', '2024-06-07', 'Devolvido', 12, 12),  -- Patricia pegou "Razão e Sensibilidade"  
+('2024-06-01', '2024-06-15', NULL, 'Em andamento', 13, 13),  -- Marcos pegou "Cem Anos de Solidão"  
+('2024-06-05', '2024-06-20', '2024-06-18', 'Devolvido', 14, 14),  -- Camila pegou "O Amor nos Tempos do Cólera"  
+('2024-06-10', '2024-06-25', NULL, 'Atrasado', 15, 15),  -- Gustavo pegou "Harry Potter e a Pedra Filosofal"  
+('2024-06-15', '2024-06-30', '2024-06-28', 'Devolvido', 16, 16),  -- Isabela pegou "Harry Potter e o Prisioneiro..."  
+('2024-06-20', '2024-07-05', NULL, 'Em andamento', 17, 17),  -- Roberto pegou "Amada"  
+('2024-06-25', '2024-07-10', '2024-07-08', 'Devolvido', 18, 18),  -- Tatiane pegou "Paraíso"  
+('2024-07-01', '2024-07-15', NULL, 'Atrasado', 19, 19),  -- Diego pegou "Kafka à Beira-Mar"  
+('2024-07-05', '2024-07-20', '2024-07-18', 'Devolvido', 20, 20),  -- Amanda pegou "Norwegian Wood"  
+('2024-07-10', '2024-07-25', NULL, 'Em andamento', 21, 21),  -- Bruno pegou "O Livro do Desassossego"  
+('2024-07-15', '2024-07-30', '2024-07-28', 'Devolvido', 22, 22),  -- Carla pegou "Mensagem"  
+('2024-07-20', '2024-08-04', NULL, 'Atrasado', 23, 23),  -- Daniel pegou "Mrs. Dalloway"  
+('2024-07-25', '2024-08-09', '2024-08-07', 'Devolvido', 24, 24),  -- Eduarda pegou "Ao Farol"  
+('2024-08-01', '2024-08-15', NULL, 'Em andamento', 25, 25),  -- Felipe pegou "Crime e Castigo"  
+('2024-08-05', '2024-08-20', '2024-08-18', 'Devolvido', 26, 26),  -- Gabriela pegou "Os Irmãos Karamázov"  
+('2024-08-10', '2024-08-25', NULL, 'Atrasado', 27, 27),  -- Hugo pegou "A Metamorfose"  
+('2024-08-15', '2024-08-30', '2024-08-28', 'Devolvido', 28, 28),  -- Ivana pegou "O Processo"  
+('2024-08-20', '2024-09-04', NULL, 'Em andamento', 29, 29),  -- Jorge pegou "O Estrangeiro"  
+('2024-08-25', '2024-09-09', '2024-09-07', 'Devolvido', 30, 30),  -- Karina pegou "A Peste"  
+('2024-09-01', '2024-09-15', NULL, 'Atrasado', 31, 31),  -- Leandro pegou "O Jogo da Amarelinha"  
+('2024-09-05', '2024-09-20', '2024-09-18', 'Devolvido', 32, 32),  -- Mariana pegou "Histórias de Cronópios..."  
+('2024-09-10', '2024-09-25', NULL, 'Em andamento', 33, 33),  -- Nicolas pegou "Vinte Poemas de Amor..."  
+('2024-09-15', '2024-09-30', '2024-09-28', 'Devolvido', 34, 34),  -- Olivia pegou "Canto Geral"  
+('2024-09-20', '2024-10-05', NULL, 'Atrasado', 35, 35),  -- Paulo pegou "O Labirinto da Solidão"  
+('2024-09-25', '2024-10-10', '2024-10-08', 'Devolvido', 36, 36),  -- Quezia pegou "Piedra de Sol"  
+('2024-10-01', '2024-10-15', NULL, 'Em andamento', 37, 37),  -- Ricardo pegou "O Assassinato no Expresso..."  
+('2024-10-05', '2024-10-20', '2024-10-18', 'Devolvido', 38, 38),  -- Sandra pegou "Morte no Nilo"  
+('2024-10-10', '2024-10-25', NULL, 'Atrasado', 39, 39),  -- Tiago pegou "O Iluminado"  
+('2024-10-15', '2024-10-30', '2024-10-28', 'Devolvido', 40, 40);  -- Ursula pegou "It: A Coisa"  
