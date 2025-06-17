@@ -1,42 +1,43 @@
-create database Biblioteaz;
+CREATE DATABASE Biblioteaz;
 
-use Biblioteaz;
+USE Biblioteaz;
 
 CREATE TABLE Autores (
-    idAutores INT PRIMARY KEY,
-    nome VARCHAR(45),
-    nacionalidade VARCHAR(45),
-    data_nascimento VARCHAR(45),
+    idAutores INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    nacionalidade VARCHAR(50),
+    data_nascimento DATE,
     biografia TEXT
 );
 
 CREATE TABLE Livros (
-    idLivros INT PRIMARY KEY,
-    Titulo VARCHAR(45),
-    ano_publicacao VARCHAR(45),
-    descricao VARCHAR(45),
-    Disponibilidade VARCHAR(45),
+    idLivros INT PRIMARY KEY AUTO_INCREMENT,
+    Titulo VARCHAR(100) NOT NULL,
+    ano_publicacao YEAR,
+    descricao TEXT,
+    Disponibilidade BOOLEAN DEFAULT TRUE,
     idAutores INT,
     FOREIGN KEY (idAutores) REFERENCES Autores(idAutores),
-    paginas VARCHAR(5)
+    paginas INT,
+    ISBN VARCHAR(20) UNIQUE
 );
 
 CREATE TABLE Usuários (
-    idUsuários INT PRIMARY KEY,
-    nome VARCHAR(45),
-    email VARCHAR(45),
-    telefone VARCHAR(45),
-    data_cadastro VARCHAR(45),
-    CPF BIGINT
+    idUsuários INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    telefone VARCHAR(20),
+    data_cadastro DATE DEFAULT (CURRENT_DATE),
+    CPF VARCHAR(14) UNIQUE
 );
 
 CREATE TABLE Empréstimos (
-    idEmpréstimos INT PRIMARY KEY,
-    data_emprestimo VARCHAR(45),
-    data_devolucao_prevista VARCHAR(45),
-    data_devolucao_real VARCHAR(45),
-    multa VARCHAR(45),
-    status VARCHAR(45),
+    idEmpréstimos INT PRIMARY KEY AUTO_INCREMENT,
+    data_emprestimo DATETIME DEFAULT CURRENT_TIMESTAMP,
+    data_devolucao_prevista DATE NOT NULL,
+    data_devolucao_real DATE,
+    multa DECIMAL(10,2) DEFAULT 0.00,
+    status ENUM('ativo', 'concluído', 'atrasado') DEFAULT 'ativo',
     idUsuários INT,
     idLivros INT,
     FOREIGN KEY (idUsuários) REFERENCES Usuários(idUsuários),
@@ -44,15 +45,16 @@ CREATE TABLE Empréstimos (
 );
 
 CREATE TABLE Reservas (
-    idReservas INT PRIMARY KEY,
-    status_reserva VARCHAR(45),
-    data_reserva VARCHAR(45),
-    limite_data VARCHAR(45),
+    idReservas INT PRIMARY KEY AUTO_INCREMENT,
+    status_reserva ENUM('pendente', 'concluída', 'cancelada') DEFAULT 'pendente',
+    data_reserva DATETIME DEFAULT CURRENT_TIMESTAMP,
+    limite_data DATE NOT NULL,
     idLivros INT,
     idUsuários INT,
     FOREIGN KEY (idLivros) REFERENCES Livros(idLivros),
     FOREIGN KEY (idUsuários) REFERENCES Usuários(idUsuários)
 );
+
 
 INSERT INTO Autores (name, nacionalidade, data_nascimento) VALUES  
 ('Machado de Assis', 'Brasileira', '1839-06-21'),  
@@ -97,10 +99,10 @@ INSERT INTO Autores (name, nacionalidade, data_nascimento) VALUES
 ('João Cabral', 'Brasileira', '1920-01-09');  
 
 INSERT INTO Usuários (name, email, telefone, data_cadastro) VALUES  
-('João Silva', 'joao.silva@email.com', '(11) 99999-1111', '2023-01-15'),  
-('Maria Souza', 'maria.souza@email.com', '(21) 98888-2222', '2023-02-20'),  
-('Carlos Oliveira', 'carlos.oliveira@email.com', '(31) 97777-3333', '2023-03-10'),  
-('Ana Pereira', 'ana.pereira@email.com', '(41) 96666-4444', '2023-04-05'),  
+('Raimundo Acleilzon', 'acleilzondm@email.com', '(11) 99999-1111', '2023-01-15'),  
+('Merenalva Sousa', 'marenalvass@email.com', '(21) 98888-2222', '2023-02-20'),  
+('Caizo Demetrio', 'caizoalves@email.com', '(31) 97777-3333', '2023-03-10'),  
+('Wenis Demetro', 'wenisdemetrio@email.com', '(41) 96666-4444', '2023-04-05'),  
 ('Pedro Santos', 'pedro.santos@email.com', '(51) 95555-5555', '2023-05-12'),  
 ('Lucia Ferreira', 'lucia.ferreira@email.com', '(61) 94444-6666', '2023-06-18'),  
 ('Paulo Costa', 'paulo.costa@email.com', '(71) 93333-7777', '2023-07-22'),  
@@ -183,14 +185,14 @@ INSERT INTO Livros (Titulo, ano_publicacao, descrição, Disponibilidade, idAuto
 INSERT INTO Reversas (status_reserva, data_reserva, idLivros, idUsuários) VALUES  
 ('Ativa', '2024-05-01', 3, 1),  -- João reservou "A Hora da Estrela"  
 ('Cancelada', '2024-05-10', 10, 2),  -- Maria reservou "A Revolução dos Bichos" (cancelou)  
-('Concluída', '2024-05-15', 15, 3),  -- Carlos reservou "Harry Potter e a Pedra Filosofal"  
+('Concluída', '2024-05-15', 15, 3),  -- Caizo reservou "Harry Potter e a Pedra Filosofal"  
 ('Ativa', '2024-06-01', 20, 4),  -- Ana reservou "Norwegian Wood"  
-('Cancelada', '2024-06-05', 25, 5),  -- Pedro reservou "Crime e Castigo" (cancelou)  
+('Cancelada', '2024-06-05', 25, 5),  -- Raimundo reservou "Crime e Castigo" (cancelou)  
 ('Concluída', '2024-06-10', 30, 6),  -- Lucia reservou "O Estrangeiro"  
-('Ativa', '2024-06-15', 35, 7),  -- Paulo reservou "O Assassinato no Expresso do Oriente"  
+('Ativa', '2024-06-15', 35, 7),  -- Wenis reservou "O Assassinato no Expresso do Oriente"  
 ('Cancelada', '2024-06-20', 40, 8),  -- Fernanda reservou "It: A Coisa" (cancelou)  
 ('Concluída', '2024-07-01', 5, 9),  -- Rafael reservou "Capitães da Areia"  
-('Ativa', '2024-07-05', 10, 10),  -- Juliana reservou "A Revolução dos Bichos"  
+('Ativa', '2024-07-05', 10, 10),  -- Merenalva reservou "A Revolução dos Bichos"  
 ('Cancelada', '2024-07-10', 15, 11),  -- Lucas reservou "Harry Potter e a Pedra Filosofal" (cancelou)  
 ('Concluída', '2024-07-15', 20, 12),  -- Patricia reservou "Norwegian Wood"  
 ('Ativa', '2024-07-20', 25, 13),  -- Marcos reservou "Crime e Castigo"  
@@ -223,13 +225,13 @@ INSERT INTO Reversas (status_reserva, data_reserva, idLivros, idUsuários) VALUE
 ('Ativa', '2024-12-05', 40, 40);  -- Ursula reservou "It: A Coisa"  
 
 INSERT INTO Empresitmos (data_empresitmo, data_devolucao_prevista, data_devolucao_real, status, idUsuários, idLivros) VALUES  
-('2024-04-01', '2024-04-15', NULL, 'Em andamento', 1, 1),  -- João pegou "Dom Casmurro"  
+('2024-04-01', '2024-04-15', NULL, 'Em andamento', 1, 1),  -- Wenis pegou "Dom Casmurro"  
 ('2024-04-05', '2024-04-20', '2024-04-18', 'Devolvido', 2, 2),  -- Maria pegou "Memórias Póstumas"  
 ('2024-04-10', '2024-04-25', NULL, 'Atrasado', 3, 3),  -- Carlos pegou "A Hora da Estrela" (atrasado)  
 ('2024-04-15', '2024-04-30', '2024-04-28', 'Devolvido', 4, 4),  -- Ana pegou "Laços de Família"  
 ('2024-04-20', '2024-05-05', NULL, 'Em andamento', 5, 5),  -- Pedro pegou "Capitães da Areia"  
 ('2024-04-25', '2024-05-10', '2024-05-08', 'Devolvido', 6, 6),  -- Lucia pegou "Dona Flor..."  
-('2024-05-01', '2024-05-15', NULL, 'Atrasado', 7, 7),  -- Paulo pegou "Sentimento do Mundo"  
+('2024-05-01', '2024-05-15', NULL, 'Atrasado', 7, 7),  -- Caizo pegou "Sentimento do Mundo"  
 ('2024-05-05', '2024-05-20', '2024-05-18', 'Devolvido', 8, 8),  -- Fernanda pegou "A Rosa do Povo"  
 ('2024-05-10', '2024-05-25', NULL, 'Em andamento', 9, 9),  -- Rafael pegou "1984"  
 ('2024-05-15', '2024-05-30', '2024-05-28', 'Devolvido', 10, 10),  -- Juliana pegou "A Revolução dos Bichos"  
@@ -237,7 +239,7 @@ INSERT INTO Empresitmos (data_empresitmo, data_devolucao_prevista, data_devoluca
 ('2024-05-25', '2024-06-09', '2024-06-07', 'Devolvido', 12, 12),  -- Patricia pegou "Razão e Sensibilidade"  
 ('2024-06-01', '2024-06-15', NULL, 'Em andamento', 13, 13),  -- Marcos pegou "Cem Anos de Solidão"  
 ('2024-06-05', '2024-06-20', '2024-06-18', 'Devolvido', 14, 14),  -- Camila pegou "O Amor nos Tempos do Cólera"  
-('2024-06-10', '2024-06-25', NULL, 'Atrasado', 15, 15),  -- Gustavo pegou "Harry Potter e a Pedra Filosofal"  
+('2024-06-10', '2024-06-25', NULL, 'Atrasado', 15, 15),  -- Raimundo pegou "Harry Potter e a Pedra Filosofal"  
 ('2024-06-15', '2024-06-30', '2024-06-28', 'Devolvido', 16, 16),  -- Isabela pegou "Harry Potter e o Prisioneiro..."  
 ('2024-06-20', '2024-07-05', NULL, 'Em andamento', 17, 17),  -- Roberto pegou "Amada"  
 ('2024-06-25', '2024-07-10', '2024-07-08', 'Devolvido', 18, 18),  -- Tatiane pegou "Paraíso"  
@@ -247,7 +249,7 @@ INSERT INTO Empresitmos (data_empresitmo, data_devolucao_prevista, data_devoluca
 ('2024-07-15', '2024-07-30', '2024-07-28', 'Devolvido', 22, 22),  -- Carla pegou "Mensagem"  
 ('2024-07-20', '2024-08-04', NULL, 'Atrasado', 23, 23),  -- Daniel pegou "Mrs. Dalloway"  
 ('2024-07-25', '2024-08-09', '2024-08-07', 'Devolvido', 24, 24),  -- Eduarda pegou "Ao Farol"  
-('2024-08-01', '2024-08-15', NULL, 'Em andamento', 25, 25),  -- Felipe pegou "Crime e Castigo"  
+('2024-08-01', '2024-08-15', NULL, 'Em andamento', 25, 25),  -- Merenalva pegou "Crime e Castigo"  
 ('2024-08-05', '2024-08-20', '2024-08-18', 'Devolvido', 26, 26),  -- Gabriela pegou "Os Irmãos Karamázov"  
 ('2024-08-10', '2024-08-25', NULL, 'Atrasado', 27, 27),  -- Hugo pegou "A Metamorfose"  
 ('2024-08-15', '2024-08-30', '2024-08-28', 'Devolvido', 28, 28),  -- Ivana pegou "O Processo"  
@@ -263,3 +265,5 @@ INSERT INTO Empresitmos (data_empresitmo, data_devolucao_prevista, data_devoluca
 ('2024-10-05', '2024-10-20', '2024-10-18', 'Devolvido', 38, 38),  -- Sandra pegou "Morte no Nilo"  
 ('2024-10-10', '2024-10-25', NULL, 'Atrasado', 39, 39),  -- Tiago pegou "O Iluminado"  
 ('2024-10-15', '2024-10-30', '2024-10-28', 'Devolvido', 40, 40);  -- Ursula pegou "It: A Coisa"  
+
+
